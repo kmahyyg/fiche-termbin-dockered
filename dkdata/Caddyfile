@@ -1,0 +1,9 @@
+http://127.0.0.1 {
+    root /data/codes
+    tls off
+    index index.html index.txt
+    minify
+    timeouts none
+    log stdout
+    errors stdout
+}

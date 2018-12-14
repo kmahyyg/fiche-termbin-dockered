@@ -1,0 +1,7 @@
+{
+    "codepath": "/data/codes",
+    "baseurl": "127.0.0.1",
+    "shorturl": 5,
+    "https_enabled": true,
+    "logfile": "/data/fiche-log.log"
+}
