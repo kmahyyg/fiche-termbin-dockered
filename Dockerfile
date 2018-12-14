@@ -5,7 +5,7 @@ ENV CADDYPATH="/data/caddyssl"
 COPY entrypoint.py /usr/bin
 
 RUN apt-get update -y \
-    && apt-get install -y --no-install-recommends build-essential git python3 curl tar supervisord\
+    && apt-get install -y --no-install-recommends build-essential git python3 curl tar supervisor \
     && git clone https://github.com/solusipse/fiche.git \
     && chmod +x /usr/bin/entrypoint.py \
     && curl -LO https://github.com/kmahyyg/deblan_gist_dockered/releases/download/caddy/caddy.tar.bz2 \
@@ -18,6 +18,7 @@ RUN apt-get update -y \
 WORKDIR /root/fiche
 
 RUN make \
-    && make install
+    && make install \
+    && rm -rf /var/lib/apt/lists/*
 
 CMD ["/usr/bin/entrypoint.py"]
