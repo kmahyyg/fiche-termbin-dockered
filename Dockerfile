@@ -17,6 +17,9 @@ RUN apt-get update -y \
 
 WORKDIR /root/fiche
 
+EXPOSE 80
+EXPOSE 443
+
 RUN make \
     && make install \
     && apt-get purge -y --auto-remove build-essential \

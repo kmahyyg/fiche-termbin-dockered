@@ -52,7 +52,7 @@ if stat_confj == True:
     else:
         pass
     # READ CONFIG AND THEN APPEND TO SUPERVISORD
-    execcmd = ["/usr/bin/supervisord", "-n", "-c", spvdconf]
+    execcmd = ["bash", "-c", "/usr/bin/supervisord", "-n", "-c", spvdconf]
     cmdstr = ' '.join(execcmd)
     os.system(cmdstr)
 else:
