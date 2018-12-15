@@ -7,7 +7,6 @@ port=0.0.0.0:9091        ; (ip_address:port specifier, *:port for ;all iface)
 username=dkgist              ; (default is no username (open server))
 password=d2k4g6i8s7t               ; (default is no password (open server))
 
-
 [supervisord]
 logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)
 logfile_maxbytes=10MB
@@ -28,17 +27,6 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
 serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
-
-[program:caddy]
-command=/root/caddy -agree -quic -conf /data/Caddyfile
-autostart=true
-autorestart=true
-startretries=3
-stdout_logfile=/dev/stdout
-stderr_logfile=/dev/stderr
-stdout_events_enabled=true
-stderr_events_enabled=true
-directory=/data/codes
 
 [program:fiche]
 autostart=true
