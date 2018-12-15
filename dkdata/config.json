@@ -3,5 +3,6 @@
     "baseurl": "127.0.0.1",
     "shorturl": 5,
     "https_enabled": true,
+    "port": 8989,
     "logfile": "/data/fiche-log.log"
 }

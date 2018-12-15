@@ -12,7 +12,7 @@ flagfile = '/data/configured1'
 
 stat_flag = os.path.isfile(confj)
 
-cmdparams = ['/usr/local/bin/fiche']
+cmdparams = ['/root/fiche']
 
 spvdconf = "/data/supervisord.conf"
 
@@ -31,6 +31,8 @@ def procconf(confdict):
             cmdparams.append(str(confdict['shorturl']))
             cmdparams.append('-l')
             cmdparams.append(confdict['logfile'])
+            cmdparams.append('-p')
+            cmdparams.append(str(confdict['port']))
         except IndexError:
             sys.exit(2)
     else:
