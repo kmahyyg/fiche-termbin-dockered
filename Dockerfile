@@ -1,5 +1,7 @@
 FROM ubuntu:18.04 as builder
 
+WORKDIR /root
+
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends build-essential git python3 curl tar ca-certificates apt-utils \
     && git clone https://github.com/solusipse/fiche.git /root/fiche \
