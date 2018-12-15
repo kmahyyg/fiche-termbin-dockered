@@ -7,8 +7,6 @@ You only need a netcat! (available in Windows, *nix)
 No netcat? 
 
 alias tb="(exec 3<>/dev/tcp/<DOMAIN NAME>/9999; cat >&3; cat <&3; exec 3<&-)"
+
 cat ~/some_file.txt | tb
 
-Need colorized and numbered?
-
-use http://l.<domainname>

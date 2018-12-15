@@ -1,4 +1,4 @@
-http://127.0.0.1 {
+http://example.com {
     root /data/codes
     tls off
     index index.html index.txt
