@@ -8,17 +8,15 @@ confj = '/data/config.json'
 
 stat_confj = os.path.isfile(confj)
 
-flagfile = '/data/configured1'
-
-stat_flag = os.path.isfile(flagfile)
-
 cmdparams = ['/root/fiche']
 
 spvdconf = '/data/supervisord.conf'
 
-spv_stat = os.path.isfile(spvdconf)
+stat_flag = os.path.isfile(spvdconf)
 
-if spv_stat == False:
+stat_template = os.path.isfile(spvdconf + '.template')
+
+if stat_template == False:
     raise FileNotFoundError
     sys.exit(7)
 
@@ -47,13 +45,11 @@ def procconf(confdict):
 
 if stat_confj == True:
     if stat_flag == False:
-        flf = open(flagfile,'w')
-        flf.write('configured')
-        flf.close()
         confdic = json.loads(open(confj,'r').read())
         procconf(confdic)
         finalcmd = finalcmd.join(cmdparams)
         tempstr = 'command=' + finalcmd
+        os.system('cp -f /data/supervisord.conf.template /data/supervisord.conf')
         fspv = open('/data/supervisord.conf', 'a')
         fspv.write(tempstr)
         fspv.close()
