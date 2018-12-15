@@ -10,11 +10,17 @@ stat_confj = os.path.isfile(confj)
 
 flagfile = '/data/configured1'
 
-stat_flag = os.path.isfile(confj)
+stat_flag = os.path.isfile(flagfile)
 
 cmdparams = ['/root/fiche']
 
-spvdconf = "/data/supervisord.conf"
+spvdconf = '/data/supervisord.conf'
+
+spv_stat = os.path.isfile(spvdconf)
+
+if spv_stat == False:
+    raise FileNotFoundError
+    sys.exit(7)
 
 finalcmd = ' '
 
@@ -48,13 +54,13 @@ if stat_confj == True:
         procconf(confdic)
         finalcmd = finalcmd.join(cmdparams)
         tempstr = 'command=' + finalcmd
-        fspv = open(spvdconf, 'a')
+        fspv = open('/data/supervisord.conf', 'a')
         fspv.write(tempstr)
         fspv.close()
     else:
         pass
     # READ CONFIG AND THEN APPEND TO SUPERVISORD
-    execcmd = ["bash", "-c", "/usr/bin/supervisord", "-n", "-c", spvdconf]
+    execcmd = ["/usr/bin/supervisord", "-n", "-c", "/data/supervisord.conf"]
     cmdstr = ' '.join(execcmd)
     os.system(cmdstr)
 else:
