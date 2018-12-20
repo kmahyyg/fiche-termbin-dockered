@@ -28,6 +28,17 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 [supervisorctl]
 serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
 
+[program:flaskhl]
+command=/usr/bin/python3 /usr/bin/highl.py
+autostart=true
+autorestart=true
+startretries=3
+directory=/data/codes
+stdout_logfile=/dev/stdout
+stderr_logfile=/dev/stderr
+stdout_events_enabled=true
+stderr_events_enabled=true
+
 [program:fiche]
 autostart=true
 autorestart=true

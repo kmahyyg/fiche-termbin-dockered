@@ -7,3 +7,10 @@ http://example.com {
     log stdout
     errors stdout
 }
+
+http://l.example.com {
+    gzip
+    timeouts none
+    tls off
+    proxy / http://<docker ip>:8988
+}

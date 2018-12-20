@@ -36,7 +36,7 @@ def procconf(confdict):
             cmdparams.append('-l')
             cmdparams.append(confdict['logfile'])
             cmdparams.append('-p')
-            cmdparams.append(str(confdict['port']))
+            cmdparams.append(str(8989))
         except IndexError:
             sys.exit(2)
     else:

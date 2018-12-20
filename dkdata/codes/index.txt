@@ -1,12 +1,19 @@
 Usage: 
 
-cat ~/some_file.txt | nc termbin.com 9999
+cat ~/some_file.txt | nc <domain.name> 9999
 
 You only need a netcat! (available in Windows, *nix)
 
 No netcat? 
 
+```
 alias tb="(exec 3<>/dev/tcp/<DOMAIN NAME>/9999; cat >&3; cat <&3; exec 3<&-)"
 
 cat ~/some_file.txt | tb
+```
 
+Windows Netcat Download: https://<domain.name>/nc.exe
+Linux Netcat Download: Check your distribution.
+MacOS Netcat Download: Already builtin.
+
+Need code to get colored and exported as photo? Go: https://l.<domain.name>
