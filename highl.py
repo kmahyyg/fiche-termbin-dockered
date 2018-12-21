@@ -30,11 +30,12 @@ def main():
     return redirect(custom_domain, code=302)
 
 
+@app.route('/<slug>/')
 @app.route('/<slug>')
 def beautify(slug):
-    # Return 404 in case of urls longer than 64 chars
+    # Return 400 in case of urls longer than 64 chars
     if len(slug) > 64:
-        abort(404)
+        abort(400)
 
     # Create path for the target dir
     target_dir = os.path.join(root_dir, slug)
